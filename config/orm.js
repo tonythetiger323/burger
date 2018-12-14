@@ -1,7 +1,7 @@
 const connection = require('./connection.js');
 
 const printQuestionMarks = (num) => {
-    const arr = [];
+    let arr = [];
 
     for (let i = 0; i < num; i++) {
         arr.push("?");
@@ -11,7 +11,7 @@ const printQuestionMarks = (num) => {
 }
 
 const objToSql = (ob) => {
-    const arr = [];
+    let arr = [];
 
     for (let key in ob) {
         let value = ob[key];
@@ -52,7 +52,7 @@ const orm = {
         });
     },
     updateOne: function (table, colVal, condition, cb) {
-        let queryString = `Update ${table}`;
+        let queryString = "Update " + table;
         queryString += " SET ";
         queryString += objToSql(colVal);
         queryString += " WHERE ";
