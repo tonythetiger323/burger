@@ -1,4 +1,4 @@
-const connection = required('./connection.js');
+const connection = require('./connection.js');
 
 const printQuestionMarks = (num) => {
     const arr = [];
@@ -27,7 +27,7 @@ const objToSql = (ob) => {
 
 const orm = {
     selectAll: function (table, cb) {
-        const queryString = `SELECT * FROM ${table}`;
+        const queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, (err, res) => {
             if (err) {
                 throw err;
@@ -36,7 +36,7 @@ const orm = {
         });
     },
     insertOne: function (table, col, val, cb) {
-        let queryString = `INSERT INTO ${table}`;
+        let queryString = "INSERT INTO " + table;
         queryString += " (";
         queryString += col.toString();
         queryString += ") ";
