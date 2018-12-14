@@ -24,8 +24,8 @@
                 <li>
                     {{this.burger_name}}
                     <form class="create-form" action="/api/burgers/{{this.id}}/update" method="POST">
-                        <input name="devoured" value="true">
-                        <button class="btn-primary" type="submit"></button>
+                        <input type="hidden" name="devoured" value="true">
+                        <button class="btn-primary" type="submit">Devour It</button>
                     </form>
                 </li>
                 {{/unless}}
