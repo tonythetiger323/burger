@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12" align="center">
-            <img src="../public/assets/img/" alt="Eat-Da-Burger">
+            <img src="assets/img/IMG_1032.jpg" alt="Eat-Da-Burger">
             <h1>Eat-Da-Burger!</h1>
             <br>
             <br>
             <h2>Add a Burger</h2>
-            <form class="create-form" action="/" method="POST">
+            <p>Enter the Name of Burger You Would Like to Order</p>
+            <form class="create-form" action="/api/burgers" method="POST">
                 <div class="form-group row w-50">
-                    <label for="addBurger">Name of Burger You Would Like to Order</label>
-                    <input type="text" class="form-control form-control-lg text-center" placeholder="Burger Name">
+                    <input type="text" class="form-control form-control-lg text-center" placeholder="Burger Name" name="burger_name">
                 </div>
                 <button class="btn-primary" type="submit">Submit Order</button>
             </form>
@@ -23,10 +23,10 @@
                 {{#each burgers}}
                 {{#unless this.devoured}}
                 <li>
-                    {{this.id}}
+
                     {{this.burger_name}}
 
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <form class="create-form" action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
                         <input type="hidden" name="devoured" value="true">
                         <button class="btn-primary" type="submit">Devour It</button>
                     </form>

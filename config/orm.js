@@ -44,7 +44,7 @@ const orm = {
         queryString += printQuestionMarks(val.length);
         queryString += ") ";
 
-        connection.query(queryString, burgerName, (err, res) => {
+        connection.query(queryString, val, (err, res) => {
             if (err) {
                 throw err;
             }

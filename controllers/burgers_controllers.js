@@ -13,26 +13,22 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
-    burger.insertOne("burger_name", req.body.burger_name, () => {
-        res.redirect("/");
-    });
+router.post("/api/burgers", (req, res) => {
+    burger.insertOne([
+        "burger_name"
+    ], [
+            req.body.burger_name
+        ], (data) => {
+            res.redirect("/");
+        });
 });
 
-router.put("/:id", (req, res) => {
+router.put("/api/burgers/:id", function (req, res) {
     const condition = "id = " + req.params.id;
-
+    console.log("Condition", condition);
     burger.updateOne({
         devoured: req.body.devoured
-    }, condition, () => {
-        res.redirect("/");
-    });
-});
-
-router.delete("/:id", (req, res) => {
-    const condition = "id = " + req.params.id;
-
-    burger.delete(condition, () => {
+    }, condition, (data) => {
         res.redirect("/");
     });
 });
