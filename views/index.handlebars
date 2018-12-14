@@ -18,17 +18,14 @@
     <div class="row">
         <div class="toDevour col-md-4" align="center">
             <h2>Burgers To Eat</h2>
-
             <ul>
                 {{#each burgers}}
                 {{#unless this.devoured}}
                 <li>
-
                     {{this.burger_name}}
-
                     <form class="create-form" action="/api/burgers/{{this.id}}/update" method="POST">
                         <input name="devoured" value="true">
-                        <button class="btn-primary" type="submit">Devour It</button>
+                        <button class="btn-primary" type="submit"></button>
                     </form>
                 </li>
                 {{/unless}}
@@ -41,7 +38,7 @@
             {{#each burgers}}
             {{#if this.devoured}}
             <li>
-                {{this.id}}
+
                 {{this.burger_name}}
             </li>
             {{/if}}
